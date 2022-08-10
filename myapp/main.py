@@ -92,7 +92,7 @@ data_layanan['color'] = cividis(len(x))
 z=110*(data_layanan['value']/data_layanan['value'].sum())
 data_layanan['value']=z
 
-p = figure(title="Jenis layanan PSB di PT TELKOM WITEL Jakarta Timur", plot_height=300, toolbar_location=None ,
+p = figure(title="Jenis Layanan", plot_height=300, toolbar_location=None ,
            tools="hover", tooltips="@layanan: @value{0.2f} %", x_range=(-.5, .5))
 p.axis.visible = False
 p.grid.grid_line_color = None
@@ -132,7 +132,7 @@ p_order.add_tools(HoverTool(tooltips=[('Date', '$x{%F}'),
 cleaned_data["MITRA"] = cleaned_data["MITRA"].replace("MIB(AP)", "MIB")
 cleaned_data["MITRA"] = cleaned_data["MITRA"].replace("PTJ(AP)", "PTJ")
 #Handling outlier
-# cleaned_data.drop(cleaned_data[(cleaned_data['MITRA'] == 'Assurance')].index, inplace=True)
+cleaned_data.drop(cleaned_data[(cleaned_data['MITRA'] == 'Assurance')].index, inplace=True)
 mitra = cleaned_data['MITRA'].value_counts()
 data_mitra = pd.Series(mitra).reset_index(name='order').rename(columns={'index': 'mitra'})
 data_mitra['angle'] = data_mitra['order']/data_mitra['order'].sum() * 2*pi
