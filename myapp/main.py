@@ -108,6 +108,9 @@ order_by_month = cleaned_data['month'].value_counts()
 data_per_mount = pd.Series(order_by_month).reset_index(name='value').rename(columns={'index':'bulan'})
 num_of_order = cleaned_data.groupby('TANGGAL PERMINTAAN').size().reset_index()
 num_of_order.columns = ['Date', 'Jumlah']
+num_of_order.set_index(num_of_order.Date, inplace=True)
+num_of_order = num_of_order.resample('D').sum().fillna(0)
+num_of_order.reset_index(inplace=True)
 num_of_order2 = num_of_order
 TOOLS = "pan, wheel_zoom, box_zoom, box_select,reset, save" # the tools you want to add to your graph
 source_order = ColumnDataSource(data={'x':num_of_order['Date'], 'y':num_of_order['Jumlah']})
