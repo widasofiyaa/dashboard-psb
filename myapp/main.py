@@ -64,7 +64,7 @@ cleaned_data["LAYANAN WMS"] = cleaned_data["LAYANAN WMS"].replace("Regular", "Re
 
 # Text Total Order
 # header_total_order = Div(text='<p style="text-align: center;">Total Order</p>')
-text = len(cleaned_data['Status terakhir / Keterangan'])
+text = len(cleaned_data['Status terakhir'])
 text = """
             <div style="text-align: center;
                         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
