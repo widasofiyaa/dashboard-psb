@@ -20,6 +20,7 @@ from bokeh.models import ColumnDataSource, HoverTool, Select, Slider, Div, Custo
 from bokeh.transform import cumsum, factor_cmap
 from bokeh.io import curdoc
 from bokeh.layouts import column, row
+import streamlit as st
 
 import pandas as pd
 sheet_id = "1Lb-8UYcZ5IIVyUS6dfPwWD6J7FQ0q-vAZgoK2jZXHK8"
@@ -338,6 +339,6 @@ mitra_row = row(select,p_perform_mitra)
 layout = column(app_title, main_row, p_order_per_month, mitra_row, copy_div)
 
 
-curdoc().add_root(column(layout, height=50))
+st.column(layout, height=50))
 
-curdoc().title = "Visualisasi PSB 2021-2022"
+st.write("Visualisasi PSB 2021-2022")
