@@ -339,6 +339,6 @@ mitra_row = row(select,p_perform_mitra)
 layout = column(app_title, main_row, p_order_per_month, mitra_row, copy_div)
 
 
-st.column(layout, height=50))
+st.column((layout, height=50))
 
 st.write("Visualisasi PSB 2021-2022")
